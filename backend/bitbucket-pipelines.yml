@@ -1,0 +1,59 @@
+image: python:3.8.11-slim-buster
+
+definitions:
+  services:
+    docker:
+      memory: 3072
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: "Dev Deployment"
+          services:
+            - docker
+          caches:
+            - pip
+            - docker
+          script:
+            - pip install awscli docker-compose
+            - aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID}"
+            - aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY}"
+            - docker-compose -f ./docker/docker-compose.dev.yml build
+            - eval $(aws ecr get-login --no-include-email --region ap-south-1 | sed 's;https://;;g')
+            - docker push ${DOCKER_REGISTRY}/cms-service:dev
+            - aws ecs update-service --cluster dev-services --service cms-service-dev --force-new-deployment
+
+    staging:
+      - step:
+          name: "Staging Deployment"
+          services:
+            - docker
+          caches:
+            - node
+            - docker
+          script:
+            - pip install awscli docker-compose
+            - aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID}"
+            - aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY}"
+            - docker-compose -f ./docker/docker-compose.stg.yml build
+            - eval $(aws ecr get-login --no-include-email --region ap-south-1 | sed 's;https://;;g')
+            - docker push ${DOCKER_REGISTRY}/cms-service:stg
+            # - aws ecs update-service --cluster staging-services --service cms-service-staging --force-new-deployment
+
+    master:
+      - step:
+          name: "Production Deployment"
+          services:
+            - docker
+          caches:
+            - node
+            - docker
+          script:
+            - pip install awscli docker-compose
+            - aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID}"
+            - aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY}"
+            - docker-compose -f ./docker/docker-compose.prod.yml build
+            - eval $(aws ecr get-login --no-include-email --region ap-south-1 | sed 's;https://;;g')
+            - docker push ${DOCKER_REGISTRY}/cms-service:prod
+            - aws ecs update-service --cluster prod-services --service cms-service-prod --force-new-deployment

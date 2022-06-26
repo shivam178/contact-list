@@ -1,0 +1,45 @@
+{
+  "name": "ts-nodejs",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "app.ts",
+  "scripts": {
+    "build": "mkdir -p ./build && tsc --project .",
+    "start:build": "tsc -w",
+    "start": "cross-env NODE_ENV=dev LOCAL_ENV=local NEW_RELIC_ENABLED=false nodemon app.ts",
+    "start:dev": "cross-env NODE_ENV=dev PORT=3005 nodemon app.js",
+    "start:staging": "cross-env NODE_ENV=staging PORT=3005 nodemon app.js",
+    "start:prod": "cross-env NODE_ENV=prod PORT=3005 nodemon app.js"
+  },
+  "author": "shivam",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^16.11.7",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.14",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.0",
+    "nodemon": "^2.0.14",
+    "ts-node": "^10.4.0",
+    "uuid": "^8.3.2"
+  }
+}

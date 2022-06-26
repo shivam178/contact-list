@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "project": "./tsconfig.json",
+  "extends": ["airbnb-base"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-console": 0,
+    "indent": ["error", 2],
+    "@typescript-eslint/no-unused-vars": 0,
+    "import/prefer-default-export": 0,
+    "max-len": ["error", { "code": 140 }],
+    "arrow-parens": "off",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "snake_case"]
+      }
+    ],
+    "no-undef": "error",
+    "no-return-assign": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "no-param-reassign": 0,
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"]
+  }
+}
