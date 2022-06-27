@@ -30,7 +30,7 @@ app.use('/contact/list/api/v1', routes);
 
 app.listen(process.env.PORT || 8080, async () => {
   try {
-    console.log(`The application is listening on port ${process.env.PORT || 8080}`);
+    console.log(`The backend application is listening on port ${process.env.PORT || 8080}`);
     console.log('Node Environment-', process.env.NODE_ENV);
   } catch (error) {
     process.exit(0);
