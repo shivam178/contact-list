@@ -1,7 +1,7 @@
 import { ArrowRightOutlined, LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import Input from 'antd/lib/input/Input';
 import Button from 'antd/lib/button/button';
-import { useSignUp } from './hooks';
+import { useSignUp } from './hooks/useSignUp';
 import Link from 'next/link';
 
 const LoginPage = ({ ...props }) => {
