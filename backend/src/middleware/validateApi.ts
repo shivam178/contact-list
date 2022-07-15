@@ -32,7 +32,7 @@ export const validateLogin = async (req: Request, res: Response, next: NextFunct
     console.log('validation user ==> ', user.data);
     if (await user.data.comparePassword({ password })) {
       const { _id, fullName, username, email, subId } = user.data;
-      res.locals.user = { _id, name: fullName,username, email, subId };
+      res.locals.user = { _id, name: fullName, username, email, subId };
       next();
     } else {
       return res.status(400).json(createResponse(400, null, null, 'Invalid Password'));

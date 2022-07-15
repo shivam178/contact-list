@@ -4,15 +4,15 @@ import { createToken } from '../service/jwt';
 import { createResponse } from '../utils/helper';
 
 export const loginUser = (req: Request, res: Response) => {
-  //Authenticate if user exists in db
-
-  //If user exists, create a token
+  const { name, username, email, subId } = res.locals.user;
   const data = {
     ...res.locals.user,
   };
   const token = createToken(data);
-  
-  return res.status(200).json(createResponse(200, { token }, null, ''));
+
+  return res
+    .status(200)
+    .json(createResponse(200, { token, name, username, email, subId }, null, ''));
 };
 
 export const signUp = async (req: Request, res: Response) => {
