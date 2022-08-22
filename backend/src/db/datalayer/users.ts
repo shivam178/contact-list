@@ -1,4 +1,4 @@
-import { Users } from '../../beans';
+import { Users } from '../../models';
 import { dbRes } from '../../interfaces/dbRes';
 
 export const addUsers = async (userInfo: Object[]) => {

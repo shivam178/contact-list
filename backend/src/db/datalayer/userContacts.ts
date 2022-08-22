@@ -1,4 +1,4 @@
-import { UserContacts } from "../../beans";
+import { UserContacts } from "../../models";
 import { dbRes } from "../../interfaces/dbRes";
 
 export const getContactsByUserId = async (userId: any) => { 
