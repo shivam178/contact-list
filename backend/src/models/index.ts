@@ -1,2 +1,2 @@
-export * from './userContacts';
+export * from './user.contacts';
 export * from './users';

@@ -7,7 +7,6 @@ export const validateSignUp = (req: Request, res: Response, next: NextFunction) 
   let invalidRes = '';
   if (isEmpty(fullName) || isEmpty(email) || isEmpty(password)) {
     invalidRes = 'Invalid Request';
-    console.log('here');
   } else if (!validateEmail(email)) {
     invalidRes = 'Invalid Email';
   }

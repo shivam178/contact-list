@@ -1,5 +1,5 @@
 import { UserContacts } from "../../models";
-import { dbRes } from "../../interfaces/dbRes";
+import { dbRes } from "../../interfaces/db.response";
 
 export const getContactsByUserId = async (userId: any) => { 
   const res: dbRes = {

@@ -1,5 +1,5 @@
 import { Users } from '../../models';
-import { dbRes } from '../../interfaces/dbRes';
+import { dbRes } from '../../interfaces/db.response';
 
 export const addUsers = async (userInfo: Object[]) => {
   const res: dbRes = {

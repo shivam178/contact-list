@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { addContacts, getContactsByUserId } from "../db/datalayer/userContacts";
+import { addContacts, getContactsByUserId } from "../db/datalayer/user.contacts";
 import { createResponse } from "../utils/helper";
 
 export const getContacts = async (req: Request, res: Response) => { 

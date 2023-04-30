@@ -4,7 +4,8 @@
   "description": "Contacts list for registered users",
   "scripts": {
     "start": "concurrently \"cd backend && npm start\" \"cd client && npm run dev\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "concurrently \"cd backend && npm install\" \"cd client && npm install\""
   },
   "repository": {
     "type": "git",

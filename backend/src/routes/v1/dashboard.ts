@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { addContact, getContacts } from '../../controller/contacts';
-import { loginUser, signUp } from '../../controller/dashboardAuth';
-import dashboardAuthRouter from '../../middleware/dashboardAuth';
-import { validateLogin, validateSignUp } from '../../middleware/validateApi';
+import { loginUser, signUp } from '../../controller/dashboard.auth';
+import dashboardAuthRouter from '../../middleware/dashboard.auth';
+import { validateLogin, validateSignUp } from '../../middleware/validations';
 
 const dashboardRouter = Router();
 
