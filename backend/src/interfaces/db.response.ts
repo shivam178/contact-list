@@ -1,8 +1,8 @@
-export interface dbRes {
-  err: any,
-  data: any,
-  count?: number,
-  message?: any,
-  statusCode?: number,
-  meta?: any
+export interface dbRes<T = any> {
+  err: any;
+  data: T;
+  count?: number;
+  message?: any;
+  statusCode?: number;
+  meta?: any;
 }
