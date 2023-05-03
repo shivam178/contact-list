@@ -1,6 +1,9 @@
 # contact-list
 Contacts list for registered users.
 
+The backend is in ExpressJS with mongoose implementaion and frontend in NextJs with React. <br />
+Currently in progress to move all the backend to NextJs.
+
 # Basic Curl request for get Contacts
 ```
 curl --location --request GET 'http://localhost:8080/contact/list/api/v1/dashboard/contacts' \
