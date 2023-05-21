@@ -2,7 +2,7 @@
 Contacts list for registered users.
 
 The backend is in ExpressJS with mongoose implementaion and frontend in NextJs with React. <br />
-Currently in progress to move all the backend to NextJs.
+Currently in progress to move all the backend to NextJs. The database is in MongoDB. 
 
 # Basic Curl request for get Contacts
 ```
